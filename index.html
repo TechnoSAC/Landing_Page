@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullTank — Gestión de Combustible B2B en Tiempo Real | PrimeFuel</title>
+    <meta name="description"
+        content="FullTank digitaliza la gestión de compraventa de combustible entre empresas industriales y proveedores. Pedidos, pagos, logística y trazabilidad en tiempo real. Sin llamadas, sin Excel, sin errores.">
+    <meta name="keywords"
+        content="gestión combustible, B2B combustible, pedidos combustible, trazabilidad combustible, software combustible Peru">
+    <meta property="og:title" content="FullTank — Gestión de Combustible B2B en Tiempo Real">
+    <meta property="og:description"
+        content="Digitaliza la gestión de combustible B2B. Pedidos, pagos, logística y trazabilidad en tiempo real.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#1E3A8A">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E3A8A'/><text y='24' x='3' font-size='20' font-weight='bold' fill='white' font-family='Arial'>T</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+    <!-- 
+     NAVBAR
+ -->
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="navbar-inner">
+
+            <!-- Logo -->
+            <a href="#inicio" class="navbar-logo" aria-label="FullTank inicio">
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <rect width="38" height="38" rx="8" fill="#1E3A8A" />
+                    <!-- T letter -->
+                    <rect x="5" y="9" width="28" height="3" rx="1.5" fill="white" />
+                    <rect x="16" y="9" width="3" height="20" rx="1.5" fill="white" />
+                    <!-- Clock circle -->
+                    <circle cx="26" cy="14" r="7" fill="#1E3A8A" stroke="white" stroke-width="1.5" />
+                    <line x1="26" y1="11" x2="26" y2="14" stroke="white" stroke-width="1.2" stroke-linecap="round" />
+                    <line x1="26" y1="14" x2="28.5" y2="15.5" stroke="white" stroke-width="1.2"
+                        stroke-linecap="round" />
+                    <circle cx="26" cy="14" r="0.8" fill="white" />
+                </svg>
+                <span class="logo-text">FullTank</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <ul class="navbar-links" role="list">
+                <li><a href="#como-funciona" data-i18n="nav.how">Cómo funciona</a></li>
+                <li><a href="#beneficios" data-i18n="nav.benefits">Beneficios</a></li>
+                <li><a href="#precios" data-i18n="nav.pricing">Precios</a></li>
+                <li><a href="#testimonios" data-i18n="nav.testimonials">Testimonios</a></li>
+                <li><a href="#sobre-nosotros" data-i18n="nav.about">Sobre nosotros</a></li>
+                <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+
+            <!-- Actions -->
+            <div class="navbar-actions">
+                <button class="lang-select" id="langBtn" aria-label="Cambiar idioma">
+                    🌐 ES ▾
+                </button>
+                <a href="#precios" class="btn btn-primary" id="btn-cta-nav"
+                    style="height:40px;padding:0 20px;font-size:14px;" data-i18n="nav.cta">Comenzar gratis</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="navDrawer">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- Mobile Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+    <div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Menú de navegación">
+        <button id="drawerClose" aria-label="Cerrar menú"
+            style="position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;background:transparent;color:var(--text-muted);">
+            ✕
+        </button>
+        <ul class="nav-drawer-links" role="list">
+            <li><a href="#como-funciona" class="drawer-nav-link" data-i18n="nav.how">Cómo funciona</a></li>
+            <li><a href="#beneficios" class="drawer-nav-link" data-i18n="nav.benefits">Beneficios</a></li>
+            <li><a href="#precios" class="drawer-nav-link" data-i18n="nav.pricing">Precios</a></li>
+            <li><a href="#testimonios" class="drawer-nav-link" data-i18n="nav.testimonials">Testimonios</a></li>
+            <li><a href="#sobre-nosotros" class="drawer-nav-link" data-i18n="nav.about">Sobre nosotros</a></li>
+            <li><a href="#contacto" class="drawer-nav-link" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+        <div class="nav-drawer-actions">
+            <a href="#precios" class="btn btn-primary btn-full drawer-nav-link" data-i18n="nav.cta">Comenzar gratis</a>
+            <button class="lang-select" style="width:100%;justify-content:center;margin-top:8px;"
+                aria-label="Cambiar idioma">🌐 ES ▾</button>
+        </div>
+    </div>
+
+
+    <!-- 
+     HERO
+ -->
+    <section id="inicio" class="hero">
+        <!-- Background shapes -->
+        <div class="hero-bg-shapes" aria-hidden="true">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+            <div class="hero-shape hero-shape-4"></div>
+        </div>
+
+        <div class="hero-inner">
+            <!-- Left col -->
+            <div class="hero-content">
+                <div class="hero-badge fade-in">
+                    <span class="badge badge-blue">⏱ Gestión de combustible en tiempo real</span>
+                </div>
+
+                <h1 class="fade-in fade-in-delay-1">
+                    Deja atrás el <span class="hero-strike">caos</span>.<br>
+                    Gestiona combustible<br>
+                    como un <span class="hero-underline">profesional.</span>
+                </h1>
+
+                <p class="hero-subtitle fade-in fade-in-delay-2">
+                    FullTank conecta empresas industriales con sus proveedores de combustible en una plataforma
+                    centralizada.
+                    Pedidos, pagos, logística y trazabilidad en tiempo real — sin llamadas, sin Excel, sin errores.
+                </p>
+
+                <ul class="hero-checks fade-in fade-in-delay-3" role="list">
+                    <li><span class="check-emoji">✅</span> Sin tarjeta de crédito requerida</li>
+                    <li><span class="check-emoji">✅</span> Configuración en menos de 10 minutos</li>
+                    <li><span class="check-emoji">✅</span> Soporte en español incluido</li>
+                </ul>
+
+                <div class="hero-ctas fade-in fade-in-delay-4">
+                    <a href="#precios" class="btn btn-primary btn-lg" id="btn-hero-demo">
+                        Solicitar demo gratuita
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </a>
+                    <button class="btn-play" id="btn-how-it-works"
+                        onclick="document.querySelector('#como-funciona').scrollIntoView({behavior:'smooth',block:'start'})">
+                        <span class="play-icon">
+                            <svg width="14" height="16" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M11 6.134a1 1 0 0 1 0 1.732L2 13a1 1 0 0 1-1.5-.866V1.866A1 1 0 0 1 2 1l9 5.134Z" />
+                            </svg>
+                        </span>
+                        Ver cómo funciona
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right col — Dashboard mockup -->
+            <div class="hero-visual fade-in fade-in-delay-2">
+                <!-- Watermark logo -->
+                <div class="hero-watermark" aria-hidden="true">
+                    <svg width="260" height="260" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="38" height="38" rx="8" fill="#1E3A8A" />
+                        <rect x="5" y="9" width="28" height="3" rx="1.5" fill="white" />
+                        <rect x="16" y="9" width="3" height="20" rx="1.5" fill="white" />
+                        <circle cx="26" cy="14" r="7" fill="#1E3A8A" stroke="white" stroke-width="1.5" />
+                        <line x1="26" y1="11" x2="26" y2="14" stroke="white" stroke-width="1.2"
+                            stroke-linecap="round" />
+                        <line x1="26" y1="14" x2="28.5" y2="15.5" stroke="white" stroke-width="1.2"
+                            stroke-linecap="round" />
+                        <circle cx="26" cy="14" r="0.8" fill="white" />
+                    </svg>
+                </div>
+
+                <!-- Dashboard mockup card -->
+                <div class="dashboard-mockup" role="img" aria-label="Vista previa del dashboard FullTank">
+                    <!-- Header -->
+                    <div class="mockup-header">
+                        <span class="mockup-greeting">👋 Buenos días, Carlos</span>
+                        <div class="mockup-right">
+                            <div class="mockup-bell" aria-label="3 notificaciones">
+                                🔔
+                                <span class="bell-dot"></span>
+                            </div>
+                            <div class="mockup-avatar" aria-hidden="true">CR</div>
+                        </div>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="mockup-body">
+                        <!-- KPI row -->
+                        <div class="mockup-kpis">
+                            <div class="mini-kpi">
+                                <div class="mini-kpi-icon">📦</div>
+                                <div class="mini-kpi-val" style="color:var(--color-primary);">5</div>
+                                <div class="mini-kpi-label">Pedidos activos</div>
+                            </div>
+                            <div class="mini-kpi">
+                                <div class="mini-kpi-icon">⏳</div>
+                                <div class="mini-kpi-val" style="color:var(--color-accent-dark);">2</div>
+                                <div class="mini-kpi-label">Pend. pago</div>
+                            </div>
+                            <div class="mini-kpi">
+                                <div class="mini-kpi-icon">🚛</div>
+                                <div class="mini-kpi-val" style="color:var(--color-info);">1</div>
+                                <div class="mini-kpi-label">En tránsito</div>
+                            </div>
+                            <div class="mini-kpi">
+                                <div class="mini-kpi-icon">✅</div>
+                                <div class="mini-kpi-val" style="color:var(--color-success);">12</div>
+                                <div class="mini-kpi-label">Completados</div>
+                            </div>
+                        </div>
+
+                        <!-- Mini table -->
+                        <div class="mockup-table-wrap">
+                            <div class="mockup-table-header">
+                                <span>ID</span>
+                                <span>Tipo</span>
+                                <span>Estado</span>
+                            </div>
+                            <div class="mockup-table-row">
+                                <span style="font-weight:600;color:var(--text-primary);">#0042</span>
+                                <span>Diesel B5</span>
+                                <span class="chip chip-approved">Aprobado</span>
+                            </div>
+                            <div class="mockup-table-row">
+                                <span style="font-weight:600;color:var(--text-primary);">#0041</span>
+                                <span>Gasolina 95</span>
+                                <span class="chip chip-dispatched">Tránsito</span>
+                            </div>
+                            <div class="mockup-table-row">
+                                <span style="font-weight:600;color:var(--text-primary);">#0040</span>
+                                <span>Diesel B5</span>
+                                <span class="chip chip-pending">Pendiente</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini chart -->
+                        <div class="mini-chart">
+                            <div class="mini-chart-title">Consumo mensual (galones)</div>
+                            <div class="chart-bars">
+                                <div class="chart-bar"
+                                    style="height:40%;background:#DBEAFE;border-radius:4px 4px 0 0;position:relative;">
+                                    <span class="chart-bar-label">Nov</span>
+                                </div>
+                                <div class="chart-bar"
+                                    style="height:55%;background:#BFDBFE;border-radius:4px 4px 0 0;position:relative;">
+                                    <span class="chart-bar-label">Dic</span>
+                                </div>
+                                <div class="chart-bar"
+                                    style="height:70%;background:#93C5FD;border-radius:4px 4px 0 0;position:relative;">
+                                    <span class="chart-bar-label">Ene</span>
+                                </div>
+                                <div class="chart-bar"
+                                    style="height:60%;background:#60A5FA;border-radius:4px 4px 0 0;position:relative;">
+                                    <span class="chart-bar-label">Feb</span>
+                                </div>
+                                <div class="chart-bar"
+                                    style="height:80%;background:#3B82F6;border-radius:4px 4px 0 0;position:relative;">
+                                    <span class="chart-bar-label">Mar</span>
+                                </div>
+                                <div class="chart-bar"
+                                    style="height:100%;background:var(--color-accent);border-radius:4px 4px 0 0;position:relative;">
+                                    <span class="chart-bar-label"
+                                        style="color:var(--color-accent-dark);font-weight:600;">Abr</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 
+     SOCIAL PROOF
+ -->
+    <div class="social-proof" id="empresas">
+        <div class="container">
+            <div class="social-proof-inner">
+                <p class="social-proof-label">Empresas que ya confían en FullTank</p>
+                <div class="logos-row" role="list">
+                    <span class="logo-item" role="listitem">MineraCorp</span>
+                    <span class="logo-item" role="listitem">ConstructPro</span>
+                    <span class="logo-item" role="listitem">LogisFuel</span>
+                    <span class="logo-item" role="listitem">AgroEnergy</span>
+                    <span class="logo-item" role="listitem">TransportMax</span>
+                    <span class="logo-item" role="listitem">IndustrialPerú</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+     EL PROBLEMA
+ -->
+    <section id="problema" class="problem section">
+        <div class="container">
+            <div class="section-header">
+                <span class="label label-amber fade-in">El Problema</span>
+                <h2 class="fade-in fade-in-delay-1">¿Te suena familiar esta situación?</h2>
+                <p class="fade-in fade-in-delay-2">Así gestiona el combustible la mayoría de empresas hoy en día…</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="pain-card fade-in">
+                    <h3>Pedidos perdidos en WhatsApp</h3>
+                    <p>Mensajes enterrados entre conversaciones. Sin confirmación formal ni trazabilidad de qué se
+                        pidió, cuándo y
+                        a quién.</p>
+                </div>
+                <div class="pain-card fade-in fade-in-delay-1">
+                    <h3>Excel interminable y desconectado</h3>
+                    <p>Planillas duplicadas, datos desactualizados y errores de digitación que nadie detecta hasta que
+                        ya es
+                        demasiado tarde.</p>
+                </div>
+                <div class="pain-card fade-in fade-in-delay-2">
+                    <h3>Llamadas para preguntar "¿dónde está mi pedido?"</h3>
+                    <p>Horas perdidas en seguimiento manual. Ninguna visibilidad real del estado de la entrega.</p>
+                </div>
+                <div class="pain-card fade-in fade-in-delay-3">
+                    <h3>Errores que paralizan operaciones</h3>
+                    <p>Un error en el pedido puede detener una obra entera. Las consecuencias económicas son
+                        devastadoras.</p>
+                </div>
+            </div>
+
+            <div class="problem-transition fade-in">
+                <span class="problem-transition-arrow">
+                    FullTank elimina todo esto →
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+     CÓMO FUNCIONA
+ -->
+    <section id="como-funciona" class="how-it-works section">
+        <div class="container">
+            <div class="section-header">
+                <span class="label label-blue fade-in">Proceso</span>
+                <h2 class="fade-in fade-in-delay-1">Gestión de combustible en 4 pasos simples</h2>
+                <p class="fade-in fade-in-delay-2">Desde el pedido hasta la entrega confirmada — todo en una sola
+                    plataforma.
+                </p>
+            </div>
+
+            <!-- Steps layout -->
+            <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;" class="how-steps-wrapper">
+
+                <!-- Step 1 -->
+                <div class="step-block fade-in" style="flex:1;min-width:0;padding:0 12px;">
+                    <div class="step-num-circle">1</div>
+                    <h3>Registra tu pedido</h3>
+                    <p>El solicitante crea un pedido en menos de 3 minutos: tipo de combustible, cantidad, fecha y
+                        dirección. Sube
+                        el comprobante de pago directo en la plataforma.</p>
+                </div>
+
+                <!-- Connector -->
+                <div class="step-arrow fade-in fade-in-delay-1">→</div>
+
+                <!-- Step 2 -->
+                <div class="step-block fade-in fade-in-delay-1" style="flex:1;min-width:0;padding:0 12px;">
+                    <div class="step-num-circle">2</div>
+                    <h3>El proveedor aprueba</h3>
+                    <p>El proveedor recibe el pedido, valida el pago y lo aprueba con un clic. Sin llamadas, sin
+                        correos. El
+                        estado se actualiza automáticamente.</p>
+                </div>
+
+                <!-- Connector -->
+                <div class="step-arrow fade-in fade-in-delay-2">→</div>
+
+                <!-- Step 3 -->
+                <div class="step-block fade-in fade-in-delay-2" style="flex:1;min-width:0;padding:0 12px;">
+                    <div class="step-num-circle">3</div>
+                    <h3>Despacho y trazabilidad</h3>
+                    <p>El proveedor asigna vehículo y conductor. El solicitante recibe notificación de que su pedido
+                        está en
+                        camino, en tiempo real.</p>
+                </div>
+
+                <!-- Connector -->
+                <div class="step-arrow fade-in fade-in-delay-3">→</div>
+
+                <!-- Step 4 -->
+                <div class="step-block fade-in fade-in-delay-3" style="flex:1;min-width:0;padding:0 12px;">
+                    <div class="step-num-circle">4</div>
+                    <h3>Confirmación y cierre</h3>
+                    <p>El solicitante confirma la entrega. El proveedor cierra el pedido. El historial queda guardado
+                        para
+                        auditoría y reportes futuros.</p>
+                </div>
+            </div>
+
+            <div class="how-cta fade-in">
+                <a href="#precios" class="btn btn-primary btn-lg">Empieza a usar FullTank →</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 
+     FEATURES (DARK)
+-->
+    <section id="beneficios" class="features-dark section">
+        <div class="container">
+            <div class="section-header">
+                <span class="label label-amber fade-in">Características</span>
+                <h2 class="fade-in fade-in-delay-1">Todo lo que necesitas para gestionar<br>combustible B2B sin
+                    fricciones</h2>
+                <p class="fade-in fade-in-delay-2" style="color:var(--text-muted);">Diseñado específicamente para
+                    solicitantes y
+                    proveedores de combustible industrial.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon-wrap">⏱</div>
+                    <h3>Trazabilidad en tiempo real</h3>
+                    <p>Monitorea cada pedido en tiempo real. Sabe exactamente en qué estado está tu combustible, desde
+                        la
+                        aprobación hasta la entrega en obra.</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-1">
+                    <div class="feature-icon-wrap">⚡</div>
+                    <h3>Aprobaciones automáticas</h3>
+                    <p>Valida pagos y aprueba pedidos sin intermediarios. Reduce el tiempo de confirmación de horas a
+                        minutos con
+                        flujos automatizados.</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-2">
+                    <div class="feature-icon-wrap">📊</div>
+                    <h3>Dashboard inteligente</h3>
+                    <p>KPIs de pedidos, consumo mensual por proveedor y métricas de rendimiento en un panel visual y
+                        centralizado.
+                        Sin hojas de cálculo.</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-1">
+                    <div class="feature-icon-wrap">🔔</div>
+                    <h3>Notificaciones automáticas</h3>
+                    <p>Alertas instantáneas en cada cambio de estado. Aprobado, despachado, entregado — tu equipo
+                        siempre
+                        informado sin hacer una sola llamada.</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-2">
+                    <div class="feature-icon-wrap">📄</div>
+                    <h3>Reportes y exportación PDF</h3>
+                    <p>Genera reportes de ventas o consumo filtrando por fecha, cliente o tipo de combustible.
+                        Descárgalos en PDF
+                        con un solo clic.</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-3">
+                    <div class="feature-icon-wrap">🚛</div>
+                    <h3>Gestión logística integrada</h3>
+                    <p>Asigna vehículos disponibles y conductores a cada pedido aprobado. Evita conflictos de agenda con
+                        validación automática de disponibilidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
