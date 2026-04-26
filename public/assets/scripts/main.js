@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'nav.testimonials': 'Testimonials',
             'nav.about':        'About us',
             'nav.contact':      'Contact',
-            'nav.cta':          'Get started free',
+            'nav.cta':          'Get started now',
 
             // Hero
             'hero.badge': '&#9201; Real-time fuel management',
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'hero.check1':   'No credit card required',
             'hero.check2':   'Setup in less than 10 minutes',
             'hero.check3':   'Multi-language support included',
-            'hero.cta':      'Request a free demo',
+            'hero.cta':      'Request a demo',
             'hero.play':     'See how it works',
 
             // Mockup
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Pricing
             'pricing.label':       'Pricing',
             'pricing.title':       'Plans that grow with you',
-            'pricing.subtitle':    'Start free. Scale when your operation demands it.',
+            'pricing.subtitle':    'Start now. Scale when your operation demands it.',
             'pricing.monthly':     'Monthly',
             'pricing.yearly':      'Yearly \u2014 save 20%',
             'pricing.note':        '\u00a7 All plans include SSL, daily backups, and Spanish support.',
@@ -584,7 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'pricing.starter.li4':    'Email notifications',
             'pricing.starter.li5':    'Last 3 months history',
             'pricing.starter.li6':    'Chat support (48h)',
-            'pricing.starter.cta':    'Start free',
+            'pricing.starter.cta':    'Start now',
             'pricing.pro.badge':   '\u2605 Most Popular',
             'pricing.pro.desc':    'For active operations',
             'pricing.pro.period':  '/ month per company',
@@ -628,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // CTA
             'cta.title':    'Ready to say goodbye<br>to fuel management chaos?',
             'cta.subtitle': 'Join more than 200 companies already managing their fuel orders with FullTank. No contracts. No complications.',
-            'cta.btn':      'Start free now \u2192',
+            'cta.btn':      'Start now \u2192',
             'cta.micro1':   'No credit card',
             'cta.micro2':   'Cancel anytime',
             'cta.micro3':   'Support in English',
@@ -639,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'footer.col1.li1':  'How it works',
             'footer.col1.li2':  'Benefits',
             'footer.col1.li3':  'Plans and pricing',
-            'footer.col1.li4':  'Free demo',
+            'footer.col1.li4':  'demo',
             'footer.col1.soon': 'Soon',
             'footer.col2.title':'Company',
             'footer.col2.li1':  'About PrimeFuel',
