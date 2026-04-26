@@ -1102,6 +1102,7 @@ p {
     margin-top: 2px;
 }
 
+
 /* ── METRIC BIG ── */
 .metric-item {
     text-align: center;
@@ -1476,9 +1477,10 @@ p {
     }
 }
 
-/* ═══════════════════════════════════════
+
+/* 
    HERO
-   ═══════════════════════════════════════ */
+    */
 .hero {
     min-height: 100vh;
     padding-top: 72px;
@@ -1565,12 +1567,7 @@ p {
 }
 
 .hero h1 {
-    overflow: visible;
-}
-
-.hero h1 {
     margin-bottom: 20px;
-    padding-bottom: 10px;
 }
 
 .hero-subtitle {
@@ -1617,21 +1614,19 @@ p {
     text-decoration-thickness: 3px;
 }
 
-
 .hero-underline {
     position: relative;
-    display: inline;
+    white-space: nowrap;
 }
 
-.underline-svg {
+.hero-underline::after {
+    content: '';
     position: absolute;
     left: 0;
-    bottom: -16px;
+    bottom: -4px;
     width: 100%;
-    height: 20px;
-    max-width: none !important;
-    overflow: visible !important;
-    display: block;
+    height: 6px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'%3E%3Cpath d='M2 8 Q50 2 100 8 Q150 14 198 8' fill='none' stroke='%23F59E0B' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% auto;
 }
 
 /* Right column — mockup */
@@ -2205,6 +2200,7 @@ p {
     }
 }
 
+
 /* 
    TESTIMONIALS
     */
@@ -2772,4 +2768,684 @@ p {
     color: var(--text-secondary);
     line-height: 1.65;
     flex: 1;
+}
+
+.team-video-section {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.team-video-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* =====================================================
+   FULLTANK — Responsive Overrides
+   Paste this at the END of style.css (after all existing rules)
+   or link as a separate stylesheet after style.css
+   ===================================================== */
+
+/* ── GLOBAL HELPERS ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+img { max-width: 100%; height: auto; }
+
+/* ── HERO ── */
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding: 56px 20px 48px;
+  }
+  .hero-badge,
+  .hero-ctas,
+  .hero-checks { justify-content: center; }
+  .hero-checks { align-items: center; }
+  .hero-subtitle { max-width: 100%; }
+  .hero-visual { justify-content: center; }
+  .dashboard-mockup { max-width: 440px; width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .hero-inner { padding: 40px 16px 40px; }
+  .dashboard-mockup { max-width: 100%; }
+  .mockup-kpis { grid-template-columns: repeat(2, 1fr); }
+  .hero-ctas { flex-direction: column; align-items: center; gap: 14px; }
+  .btn-lg { width: 100%; justify-content: center; }
+  .btn-play { justify-content: center; }
+  .hero h1 { font-size: clamp(28px, 8vw, 40px); }
+  .hero-subtitle { font-size: 15px; }
+}
+
+/* ── HOW IT WORKS — steps horizontal → vertical on mobile ── */
+.how-steps-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+  .how-steps-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .how-steps-wrapper .step-block {
+    padding: 0 12px 8px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .how-steps-wrapper .step-arrow {
+    transform: rotate(90deg);
+    font-size: 22px;
+    margin: 0 auto;
+    padding: 4px 0;
+    display: block;
+    text-align: center;
+    margin-top: -4px;
+  }
+}
+
+/* ── STEP BLOCKS ── */
+.step-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  padding: 0 8px;
+}
+.step-block h3 { font-size: 16px; color: var(--color-primary); margin-bottom: 8px; }
+.step-block p  { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ── FEATURES GRID ── */
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ── DUAL SEGMENT ── */
+@media (max-width: 768px) {
+  .dual-segment-grid { grid-template-columns: 1fr; }
+}
+
+/* ── METRICS ── */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .metric-cell:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.12); }
+  .metric-cell:nth-child(even) { border-right: none; }
+  .metric-cell:nth-child(1),
+  .metric-cell:nth-child(2)    { border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .metric-number { font-size: clamp(28px, 8vw, 48px); }
+}
+
+@media (max-width: 400px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+  .metric-cell { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.12) !important; }
+  .metric-cell:last-child { border-bottom: none !important; }
+}
+
+/* ── ABOUT ── */
+@media (max-width: 1024px) {
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about-right { display: none; }
+}
+
+@media (max-width: 600px) {
+  .about-title { font-size: clamp(24px, 7vw, 36px); }
+  .about-pillars { gap: 16px; }
+  .about-pillar { flex-direction: column; gap: 10px; }
+  .pillar-icon { width: 40px; height: 40px; font-size: 18px; }
+}
+
+/* ── TEAM ── */
+@media (max-width: 1100px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+
+@media (max-width: 440px) {
+  .team-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+}
+
+/* ── TESTIMONIALS ── */
+@media (max-width: 1024px) {
+  .grid-3.testimonials-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+
+/* fallback for plain .grid-3 used in testimonials section */
+@media (max-width: 768px) {
+  #testimonios .grid-3 { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+
+/* ── PRICING ── */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .pricing-card.featured {
+    transform: none;
+    order: -1;
+  }
+  .pricing-card.featured:hover { transform: translateY(-4px); }
+}
+
+@media (max-width: 500px) {
+  .pricing-card { padding: 32px 24px; }
+  .price-amount { font-size: 36px; }
+}
+
+/* ── FAQ ── */
+@media (max-width: 600px) {
+  .faq-container { padding: 0 4px; }
+  .faq-trigger { font-size: 15px; gap: 12px; }
+}
+
+/* ── CTA FINAL ── */
+@media (max-width: 600px) {
+  .cta-final { padding: 64px 0; }
+  .cta-final h2 { font-size: clamp(24px, 7vw, 36px); }
+  .cta-final-subtitle { font-size: 15px; }
+  #btn-cta-final { width: 100%; font-size: 15px !important; height: 52px !important; padding: 0 24px !important; }
+  .cta-final-micro { flex-direction: column; gap: 8px; }
+  .cta-micro-dot { display: none; }
+}
+
+/* ── FOOTER ── */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer { padding: 48px 0 0; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+}
+
+/* ── SOCIAL PROOF ── */
+@media (max-width: 480px) {
+  .logos-row { gap: 18px; }
+  .logo-item { font-size: 12px; }
+}
+
+/* ── SECTION HEADERS ── */
+@media (max-width: 600px) {
+  .section-header { margin-bottom: 36px; }
+  .section-header h2 { font-size: clamp(22px, 6.5vw, 32px); }
+  .section-header p { font-size: 15px; }
+}
+
+/* ── VIDEO ── */
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.video-container iframe { width: 100%; height: 100%; border: none; display: block; }
+
+@media (max-width: 600px) {
+  .how-video { margin-top: 20px !important; }
+}
+
+/* ── NAVBAR ── */
+@media (max-width: 1024px) {
+  .navbar-links { display: none; }
+  .lang-select  { display: none; }
+  .hamburger    { display: flex; }
+  .navbar-actions .btn:first-child { display: none; }
+}
+
+@media (max-width: 480px) {
+  .navbar-actions { display: none; }
+  .navbar-inner { padding: 0 16px; }
+}
+
+/* ── PROBLEM GRID ── */
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── PAIN CARDS ── */
+@media (max-width: 480px) {
+  .pain-card { padding: 20px; }
+  .pain-card h3 { font-size: 16px; }
+}
+
+/* ── SCROLL TOP ── */
+@media (max-width: 480px) {
+  .scroll-top { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+}
+
+/* ── PREVENT HORIZONTAL OVERFLOW ── */
+html, body { overflow-x: hidden; }
+.hero, .section, .metrics, .cta-final, .footer, .social-proof { overflow-x: hidden; }
+
+/* ── SEGMENT CARDS ── */
+@media (max-width: 600px) {
+  .segment-card { padding: 28px 20px; }
+}
+
+/* ── FEATURE CARDS ── */
+@media (max-width: 480px) {
+  .feature-card { padding: 20px; }
+}
+
+/* ── TOUCH TARGET SIZES ── */
+@media (max-width: 768px) {
+  .btn { min-height: 48px; }
+  .faq-trigger { min-height: 52px; padding: 16px 0; }
+}
+
+/* ── TEAM VIDEO SECTION ── */
+@media (max-width: 600px) {
+  .team-video-section { padding: 28px 16px; }
+  .team-video-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+}
+
+/* ── MOCKUP TABLE — prevent overflow on very small screens ── */
+@media (max-width: 360px) {
+  .mockup-table-row,
+  .mockup-table-header { grid-template-columns: 52px 1fr 68px; padding: 8px 10px; }
+  .mockup-body { padding: 12px; }
+  .mockup-kpis { gap: 6px; }
+  .mini-kpi { padding: 8px; }
+  .mini-kpi-val { font-size: 16px; }
+}
+
+/* ── ABOUT STARTUP BADGE ── */
+@media (max-width: 480px) {
+  .about-startup-badge { font-size: 12px; padding: 6px 14px; flex-wrap: wrap; text-align: center; }
+}
+
+/* ── HERO BADGE ── */
+@media (max-width: 480px) {
+  .hero-badge .badge { font-size: 11px; padding: 5px 12px; }
+}
+
+/* ── PRICING TOGGLE ── */
+@media (max-width: 480px) {
+  .toggle-group { flex-wrap: wrap; justify-content: center; }
+  .toggle-btn { padding: 8px 14px; font-size: 13px; }
+}
+
+/* ── CONTAINER SAFE PADDING ── */
+@media (max-width: 360px) {
+  .container { padding: 0 12px; }
+}
+
+/* =====================================================
+   FULLTANK — Responsive Overrides
+   Paste this at the END of style.css (after all existing rules)
+   or link as a separate stylesheet after style.css
+   ===================================================== */
+
+/* ── GLOBAL HELPERS ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+img { max-width: 100%; height: auto; }
+
+/* ── HERO ── */
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding: 56px 20px 48px;
+  }
+  .hero-badge,
+  .hero-ctas,
+  .hero-checks { justify-content: center; }
+  .hero-checks { align-items: center; }
+  .hero-subtitle { max-width: 100%; }
+  .hero-visual { justify-content: center; }
+  .dashboard-mockup { max-width: 440px; width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .hero-inner { padding: 40px 16px 40px; }
+  .dashboard-mockup { max-width: 100%; }
+  .mockup-kpis { grid-template-columns: repeat(2, 1fr); }
+  .hero-ctas { flex-direction: column; align-items: center; gap: 14px; }
+  .btn-lg { width: 100%; justify-content: center; }
+  .btn-play { justify-content: center; }
+  .hero h1 { font-size: clamp(28px, 8vw, 40px); }
+  .hero-subtitle { font-size: 15px; }
+}
+
+/* ── HOW IT WORKS — steps horizontal → vertical on mobile ── */
+.how-steps-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+  .how-steps-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .how-steps-wrapper .step-block {
+    padding: 0 12px 8px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .how-steps-wrapper .step-arrow {
+    transform: rotate(90deg);
+    font-size: 22px;
+    margin: 0 auto;
+    padding: 4px 0;
+    display: block;
+    text-align: center;
+    margin-top: -4px;
+  }
+}
+
+/* ── STEP BLOCKS ── */
+.step-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  padding: 0 8px;
+}
+.step-block h3 { font-size: 16px; color: var(--color-primary); margin-bottom: 8px; }
+.step-block p  { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ── FEATURES GRID ── */
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ── DUAL SEGMENT ── */
+@media (max-width: 768px) {
+  .dual-segment-grid { grid-template-columns: 1fr; }
+}
+
+/* ── METRICS ── */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .metric-cell:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.12); }
+  .metric-cell:nth-child(even) { border-right: none; }
+  .metric-cell:nth-child(1),
+  .metric-cell:nth-child(2)    { border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .metric-number { font-size: clamp(28px, 8vw, 48px); }
+}
+
+@media (max-width: 400px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+  .metric-cell { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.12) !important; }
+  .metric-cell:last-child { border-bottom: none !important; }
+}
+
+/* ── ABOUT ── */
+@media (max-width: 1024px) {
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about-right { display: none; }
+}
+
+@media (max-width: 600px) {
+  .about-title { font-size: clamp(24px, 7vw, 36px); }
+  .about-pillars { gap: 16px; }
+  .about-pillar { flex-direction: column; gap: 10px; }
+  .pillar-icon { width: 40px; height: 40px; font-size: 18px; }
+}
+
+/* ── TEAM ── */
+@media (max-width: 1100px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+
+@media (max-width: 440px) {
+  .team-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+}
+
+/* ── TESTIMONIALS ── */
+@media (max-width: 1024px) {
+  .grid-3.testimonials-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+
+/* fallback for plain .grid-3 used in testimonials section */
+@media (max-width: 768px) {
+  #testimonios .grid-3 { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+
+/* ── PRICING ── */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .pricing-card.featured {
+    transform: none;
+    order: -1;
+  }
+  .pricing-card.featured:hover { transform: translateY(-4px); }
+}
+
+@media (max-width: 500px) {
+  .pricing-card { padding: 32px 24px; }
+  .price-amount { font-size: 36px; }
+}
+
+/* ── FAQ ── */
+@media (max-width: 600px) {
+  .faq-container { padding: 0 4px; }
+  .faq-trigger { font-size: 15px; gap: 12px; }
+}
+
+/* ── CTA FINAL ── */
+@media (max-width: 600px) {
+  .cta-final { padding: 64px 0; }
+  .cta-final h2 { font-size: clamp(24px, 7vw, 36px); }
+  .cta-final-subtitle { font-size: 15px; }
+  #btn-cta-final { width: 100%; font-size: 15px !important; height: 52px !important; padding: 0 24px !important; }
+  .cta-final-micro { flex-direction: column; gap: 8px; }
+  .cta-micro-dot { display: none; }
+}
+
+/* ── FOOTER ── */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer { padding: 48px 0 0; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+}
+
+/* ── SOCIAL PROOF ── */
+@media (max-width: 480px) {
+  .logos-row { gap: 18px; }
+  .logo-item { font-size: 12px; }
+}
+
+/* ── SECTION HEADERS ── */
+@media (max-width: 600px) {
+  .section-header { margin-bottom: 36px; }
+  .section-header h2 { font-size: clamp(22px, 6.5vw, 32px); }
+  .section-header p { font-size: 15px; }
+}
+
+/* ── VIDEO ── */
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.video-container iframe { width: 100%; height: 100%; border: none; display: block; }
+
+@media (max-width: 600px) {
+  .how-video { margin-top: 20px !important; }
+}
+
+/* ── NAVBAR ── */
+@media (max-width: 1024px) {
+  .navbar-links { display: none; }
+  .lang-select  { display: none; }
+  .hamburger    { display: flex; }
+  .navbar-actions .btn:first-child { display: none; }
+}
+
+@media (max-width: 480px) {
+  .navbar-actions { display: none; }
+  .navbar-inner { padding: 0 16px; }
+}
+
+/* ── PROBLEM GRID ── */
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── PAIN CARDS ── */
+@media (max-width: 480px) {
+  .pain-card { padding: 20px; }
+  .pain-card h3 { font-size: 16px; }
+}
+
+/* ── SCROLL TOP ── */
+@media (max-width: 480px) {
+  .scroll-top { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+}
+
+/* ── PREVENT HORIZONTAL OVERFLOW ── */
+html, body { overflow-x: hidden; }
+.hero, .section, .metrics, .cta-final, .footer, .social-proof { overflow-x: hidden; }
+
+/* ── SEGMENT CARDS ── */
+@media (max-width: 600px) {
+  .segment-card { padding: 28px 20px; }
+}
+
+/* ── FEATURE CARDS ── */
+@media (max-width: 480px) {
+  .feature-card { padding: 20px; }
+}
+
+/* ── TOUCH TARGET SIZES ── */
+@media (max-width: 768px) {
+  .btn { min-height: 48px; }
+  .faq-trigger { min-height: 52px; padding: 16px 0; }
+}
+
+/* ── TEAM VIDEO SECTION ── */
+@media (max-width: 600px) {
+  .team-video-section { padding: 28px 16px; }
+  .team-video-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+}
+
+/* ── MOCKUP TABLE — prevent overflow on very small screens ── */
+@media (max-width: 360px) {
+  .mockup-table-row,
+  .mockup-table-header { grid-template-columns: 52px 1fr 68px; padding: 8px 10px; }
+  .mockup-body { padding: 12px; }
+  .mockup-kpis { gap: 6px; }
+  .mini-kpi { padding: 8px; }
+  .mini-kpi-val { font-size: 16px; }
+}
+
+/* ── ABOUT STARTUP BADGE ── */
+@media (max-width: 480px) {
+  .about-startup-badge { font-size: 12px; padding: 6px 14px; flex-wrap: wrap; text-align: center; }
+}
+
+/* ── HERO BADGE ── */
+@media (max-width: 480px) {
+  .hero-badge .badge { font-size: 11px; padding: 5px 12px; }
+}
+
+/* ── PRICING TOGGLE ── */
+@media (max-width: 480px) {
+  .toggle-group { flex-wrap: wrap; justify-content: center; }
+  .toggle-btn { padding: 8px 14px; font-size: 13px; }
+}
+
+/* ── CONTAINER SAFE PADDING ── */
+@media (max-width: 360px) {
+  .container { padding: 0 12px; }
+}
+
+/* ── LANG BUTTON INSIDE MOBILE DRAWER ── */
+/* El .lang-select dentro del drawer se oculta por herencia del navbar;
+   lo forzamos visible siempre dentro de .nav-drawer */
+.nav-drawer .lang-select {
+  display: flex !important;
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.nav-drawer .lang-select:hover {
+  background: var(--color-primary);
+  color: #fff;
 }
